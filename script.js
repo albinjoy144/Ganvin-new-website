@@ -140,48 +140,5 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', updateSlider);
     }
 
-    // 6. Interactive Booking Modal
-    const bookingModal = document.getElementById('booking-modal');
-    const openModalButtons = document.querySelectorAll('.open-booking');
-    const closeModalButton = document.getElementById('close-modal');
-    const modalForm = document.getElementById('booking-form');
 
-    if (bookingModal && openModalButtons && closeModalButton) {
-        openModalButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                bookingModal.classList.add('open');
-                document.body.style.overflow = 'hidden'; // Lock background scroll
-            });
-        });
-
-        closeModalButton.addEventListener('click', () => {
-            bookingModal.classList.remove('open');
-            document.body.style.overflow = ''; // Unlock background scroll
-        });
-
-        // Close on clicking outside modal content
-        const modalOverlay = bookingModal.querySelector('.modal-overlay');
-        if (modalOverlay) {
-            modalOverlay.addEventListener('click', () => {
-                bookingModal.classList.remove('open');
-                document.body.style.overflow = '';
-            });
-        }
-
-        // Form Submit simulation
-        if (modalForm) {
-            modalForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const service = document.getElementById('modal-service').value;
-                const name = document.getElementById('modal-name').value;
-                
-                alert(`Thank you, ${name}! Your booking request for "${service}" has been received. Our valet agent will contact you shortly to schedule pickup.`);
-                
-                bookingModal.classList.remove('open');
-                document.body.style.overflow = '';
-                modalForm.reset();
-            });
-        }
-    }
 });
