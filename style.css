@@ -459,7 +459,7 @@ header .btn {
     .drawer-header {
         flex-shrink: 0;
         padding: 1.1rem 1.5rem;
-        border-bottom: 1px solid var(--border);
+        /* border-bottom: 1px solid var(--border); */
         display: flex;
         align-items: center;
     }
@@ -584,7 +584,7 @@ header .btn {
 
 .hero-banner {
     background-color: #dc2626;
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     padding: 2rem;
     position: relative;
     overflow: hidden;
@@ -1022,7 +1022,7 @@ header .btn {
 
 .app-promo-card {
     background-color: #dc2626;
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     padding: 3rem;
     color: var(--white);
     position: relative;
@@ -1243,7 +1243,7 @@ header .btn {
 
 .testimonial-card {
     background-color: var(--white);
-    border-radius: 25px;
+    border-radius: var(--radius-lg);
     padding: 2rem;
     /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); */
     border: 1px solid #f1f5f9;
@@ -1363,7 +1363,7 @@ header .btn {
 
 .cta-banner {
     background-color: #dc2626;
-    border-radius: 24px;
+    border-radius: var(--radius-lg);
     padding: 3.5rem 4rem;
     color: var(--white);
     display: flex;
@@ -1495,7 +1495,7 @@ header .btn {
 }
 
 .faq-item {
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     background-color: var(--white);
     border: 1px solid #e2e8f0;
     overflow: hidden;
