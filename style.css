@@ -2095,6 +2095,7 @@ footer {
     margin-bottom: 2rem;
     font-size: 1.35rem;
     transition: var(--transition-normal);
+    border: 1px solid var(--border);
 }
 
 /* .mission-card.highlighted .mission-icon {
