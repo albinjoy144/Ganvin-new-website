@@ -1,0 +1,5 @@
+# Ignore About Us page and its assets in Git (keep locally only)
+about.html
+assets/about-hero-woman.png
+assets/about-ironing.png
+assets/about-closet.png
