@@ -2058,8 +2058,10 @@ footer {
 
 .mission-card.highlighted {
     background-color: #dc2626;
-    border-color: #dc2626;
+    /* border-color: #dc2626; */
     color: var(--white);
+    background-color: var(--white);
+    border: 1px solid var(--border);
 }
 
 .mission-card:hover {
@@ -2095,10 +2097,10 @@ footer {
     transition: var(--transition-normal);
 }
 
-.mission-card.highlighted .mission-icon {
+/* .mission-card.highlighted .mission-icon {
     background-color: rgba(255, 255, 255, 0.2);
     color: var(--white);
-}
+} */
 
 .mission-icon svg {
     width: 1.45rem;
@@ -2113,9 +2115,9 @@ footer {
     color: var(--dark);
 }
 
-.mission-card.highlighted h3 {
+/* .mission-card.highlighted h3 {
     color: var(--white);
-}
+} */
 
 .mission-card p {
     font-size: 0.95rem;
@@ -2124,9 +2126,9 @@ footer {
     margin: 0;
 }
 
-.mission-card.highlighted p {
+/* .mission-card.highlighted p {
     color: rgba(255, 255, 255, 0.9);
-}
+} */
 
 /* Core Services (About Page) */
 .services-about {
