@@ -2065,6 +2065,20 @@ footer {
 .mission-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+}
+
+.mission-card:hover h3,
+.mission-card:hover p {
+    color: var(--white);
+}
+
+.mission-card:hover .mission-icon {
+    background-color: #ffffff;
+    border: none;
+    color: var(--primary);
 }
 
 .mission-icon {
