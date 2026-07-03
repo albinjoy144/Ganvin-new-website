@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart | Ganvin Premium Professional Laundry Services</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description"
+        content="Review your selected professional laundry and steam ironing services, adjust item quantities, and complete your order. Doorstep pickup and delivery in Bangalore.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/logo.ico">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css?v=40">
+
+    <!-- Icon Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="cart-page-body">
+
+    <!-- Sticky Navigation Header -->
+    <header id="main-header">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo" id="header-logo">
+                <img src="assets/logo.png" alt="Ganvin Logo" class="logo-img">
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="cart.html" class="cart-icon-btn active" id="desktop-cart-link" aria-label="View Cart">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span class="cart-badge-count" id="cart-badge-count-desktop">0</span>
+                </a>
+                <a href="cart.html" class="login-btn">Login</a>
+                <a href="#" class="btn btn-primary open-booking">Book Now</a>
+            </div>
+
+            <div class="mobile-header-right">
+                <a href="cart.html" class="mobile-cart-icon-btn active" id="mobile-cart-link" aria-label="View Cart">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span class="cart-badge-count" id="cart-badge-count-mobile">0</span>
+                </a>
+                <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars hamburger-icon"></i>
+                    <i class="fa-solid fa-xmark close-icon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Drawer -->
+    <nav class="nav-drawer" id="nav-links-menu">
+        <!-- Drawer Header: Logo -->
+        <div class="drawer-header">
+            <a href="index.html">
+                <img src="assets/logo.png" alt="Ganvin Logo" class="logo-img">
+            </a>
+        </div>
+
+        <!-- Drawer Body: Scrollable Nav Links -->
+        <ul class="drawer-body">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="cart.html" class="active">Cart</a></li>
+        </ul>
+
+        <!-- Drawer Footer: Actions -->
+        <div class="drawer-footer">
+            <a href="cart.html" class="login-btn">Login</a>
+            <a href="#" class="btn btn-primary open-booking">Book Now</a>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Backdrop Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-overlay"></div>
+
+    <!-- Cart Intro Header Section -->
+    <section class="cart-intro">
+        <div class="container">
+            <div class="cart-badge reveal">
+                My Cart
+            </div>
+            <h1 class="reveal">Shopping Bag</h1>
+
+        </div>
+    </section>
+
+    <!-- Main Cart Content Area -->
+    <main class="cart-main-content">
+        <div class="container">
+
+
+            <!-- Cart Details Grid -->
+            <div class="cart-grid">
+                <!-- Left Column: Items and Service Dropdown Selector -->
+                <section class="cart-left-column">
+                    
+                    <!-- Service Dropdown Selector -->
+                    <div class="cart-service-dropdown" id="service-dropdown">
+                        <div class="dropdown-header" tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="false">
+                            <div class="dropdown-header-left">
+                                <div class="dropdown-icon-wrapper" id="dropdown-current-icon">
+                                    <i class="fa-solid fa-shirt"></i>
+                                </div>
+                                <span class="dropdown-current-text" id="dropdown-current-text">STEAM IRONING TRIAL@Rs1</span>
+                            </div>
+                            <div class="dropdown-header-right">
+                                <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="dropdown-content-card" id="dropdown-content">
+                            <ul class="dropdown-list" role="listbox">
+                                <li class="dropdown-list-item active" data-target="acc-trial" data-icon-class="fa-solid fa-shirt" role="option" aria-selected="true" tabindex="0">
+                                    <div class="list-item-left">
+                                        <i class="fa-solid fa-shirt item-icon"></i>
+                                        <span>STEAM IRONING TRIAL@Rs1</span>
+                                    </div>
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                </li>
+                                <li class="dropdown-list-item" data-target="acc-standard" data-icon-class="fa-solid fa-fire-burner" role="option" aria-selected="false" tabindex="0">
+                                    <div class="list-item-left">
+                                        <i class="fa-solid fa-fire-burner item-icon"></i>
+                                        <span>STEAM IRONING</span>
+                                    </div>
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                </li>
+                                <li class="dropdown-list-item" data-target="acc-quick-steam-60" data-icon-class="fa-solid fa-bolt" role="option" aria-selected="false" tabindex="0">
+                                    <div class="list-item-left">
+                                        <i class="fa-solid fa-bolt item-icon"></i>
+                                        <span>QUICK STEAM IRONING 60 MINUTES DELIVERY</span>
+                                    </div>
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                </li>
+                                <li class="dropdown-list-item" data-target="acc-wash-fold" data-icon-class="fa-solid fa-soap" role="option" aria-selected="false" tabindex="0">
+                                    <div class="list-item-left">
+                                        <i class="fa-solid fa-soap item-icon"></i>
+                                        <span>WASH AND FOLD</span>
+                                    </div>
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                </li>
+                                <li class="dropdown-list-item" data-target="acc-wash-steam" data-icon-class="fa-solid fa-jug-detergent" role="option" aria-selected="false" tabindex="0">
+                                    <div class="list-item-left">
+                                        <i class="fa-solid fa-jug-detergent item-icon"></i>
+                                        <span>WASH AND STEAM IRONING</span>
+                                    </div>
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                </li>
+                                <li class="dropdown-list-item" data-target="acc-quick-wash-3h" data-icon-class="fa-solid fa-person-running" role="option" aria-selected="false" tabindex="0">
+                                    <div class="list-item-left">
+                                        <i class="fa-solid fa-person-running item-icon"></i>
+                                        <span>QUICK WASH & STEAM IRONING 3 HOURS DELIVERY</span>
+                                    </div>
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                </li>
+                                <li class="dropdown-list-item" data-target="acc-dry-cleaning" data-icon-class="fa-solid fa-wind" role="option" aria-selected="false" tabindex="0">
+                                    <div class="list-item-left">
+                                        <i class="fa-solid fa-wind item-icon"></i>
+                                        <span>DRY CLEANING</span>
+                                    </div>
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Active Service Content Panels -->
+                    <div class="cart-content-panels-column" aria-label="Cart Items">
+                        
+                        <!-- Panel 1: Steam Ironing Trial Content -->
+                        <div class="cart-panel-content active" id="acc-trial-panel" role="tabpanel" aria-labelledby="dropdown-current-text">
+                            <!-- Category: Men/Boy -->
+                            <div class="cart-category-card" data-category="trial-men" id="cat-trial-men">
+                                <div class="category-card-header">
+                                    <h3>Men/Boy</h3>
+                                    <button class="remove-category-btn" aria-label="Remove Men/Boy Category" data-target="trial-men">
+                                        <i class="fa-solid fa-circle-xmark"></i>
+                                    </button>
+                                </div>
+                                <div class="category-card-items">
+                                    <!-- Pant Row -->
+                                    <div class="cart-item-row" data-item-id="trial-pant">
+                                        <div class="item-visual-info">
+                                            <div class="item-icon-bg">
+                                                <i class="fa-solid fa-shirt" style="transform: rotate(180deg);"></i>
+                                            </div>
+                                            <span class="item-label-text">Pant Rs 1</span>
+                                        </div>
+                                        <div class="item-quantity-controls">
+                                            <button class="quantity-change-btn minus" aria-label="Decrease quantity" data-item="trial-pant">-</button>
+                                            <span class="quantity-number-val" id="qty-trial-pant">0</span>
+                                            <button class="quantity-change-btn plus" aria-label="Increase quantity" data-item="trial-pant">+</button>
+                                        </div>
+                                    </div>
+                                    <!-- Shirt Row -->
+                                    <div class="cart-item-row" data-item-id="trial-shirt">
+                                        <div class="item-visual-info">
+                                            <div class="item-icon-bg">
+                                                <i class="fa-solid fa-shirt"></i>
+                                            </div>
+                                            <span class="item-label-text">Shirt Rs 1</span>
+                                        </div>
+                                        <div class="item-quantity-controls">
+                                            <button class="quantity-change-btn minus" aria-label="Decrease quantity" data-item="trial-shirt">-</button>
+                                            <span class="quantity-number-val" id="qty-trial-shirt">0</span>
+                                            <button class="quantity-change-btn plus" aria-label="Increase quantity" data-item="trial-shirt">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Category: Women/Girl -->
+                            <div class="cart-category-card" data-category="trial-women" id="cat-trial-women">
+                                <div class="category-card-header">
+                                    <h3>Women/Girl</h3>
+                                    <button class="remove-category-btn" aria-label="Remove Women/Girl Category" data-target="trial-women">
+                                        <i class="fa-solid fa-circle-xmark"></i>
+                                    </button>
+                                </div>
+                                <div class="category-card-items">
+                                    <!-- Saree Row -->
+                                    <div class="cart-item-row" data-item-id="trial-saree">
+                                        <div class="item-visual-info">
+                                            <div class="item-icon-bg">
+                                                <i class="fa-solid fa-person-dress"></i>
+                                            </div>
+                                            <span class="item-label-text">Saree Rs 1</span>
+                                        </div>
+                                        <div class="item-quantity-controls">
+                                            <button class="quantity-change-btn minus" aria-label="Decrease quantity" data-item="trial-saree">-</button>
+                                            <span class="quantity-number-val" id="qty-trial-saree">0</span>
+                                            <button class="quantity-change-btn plus" aria-label="Increase quantity" data-item="trial-saree">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel 2: Standard Steam Ironing Content -->
+                        <div class="cart-panel-content" id="acc-standard-panel" role="tabpanel" aria-labelledby="dropdown-current-text">
+                            <!-- Category: Men/Boy -->
+                            <div class="cart-category-card" data-category="standard-men" id="cat-standard-men">
+                                <div class="category-card-header">
+                                    <h3>Men/Boy</h3>
+                                    <button class="remove-category-btn" aria-label="Remove Men/Boy Standard Category" data-target="standard-men">
+                                        <i class="fa-solid fa-circle-xmark"></i>
+                                    </button>
+                                </div>
+                                <div class="category-card-items">
+                                    <!-- Shirt Row -->
+                                    <div class="cart-item-row" data-item-id="standard-shirt">
+                                        <div class="item-visual-info">
+                                            <div class="item-icon-bg">
+                                                <i class="fa-solid fa-shirt"></i>
+                                            </div>
+                                            <div class="item-details-meta">
+                                                <span class="item-label-text">Executive Shirts</span>
+                                                <span class="item-sub-price">₹4.50 / item</span>
+                                            </div>
+                                        </div>
+                                        <div class="item-quantity-controls">
+                                            <button class="quantity-change-btn minus" aria-label="Decrease quantity" data-item="standard-shirt">-</button>
+                                            <span class="quantity-number-val" id="qty-standard-shirt">0</span>
+                                            <button class="quantity-change-btn plus" aria-label="Increase quantity" data-item="standard-shirt">+</button>
+                                        </div>
+                                    </div>
+                                    <!-- Pants Row -->
+                                    <div class="cart-item-row" data-item-id="standard-pants">
+                                        <div class="item-visual-info">
+                                            <div class="item-icon-bg">
+                                                <i class="fa-solid fa-shirt" style="transform: rotate(180deg);"></i>
+                                            </div>
+                                            <div class="item-details-meta">
+                                                <span class="item-label-text">Smart Trousers</span>
+                                                <span class="item-sub-price">₹6.50 / item</span>
+                                            </div>
+                                        </div>
+                                        <div class="item-quantity-controls">
+                                            <button class="quantity-change-btn minus" aria-label="Decrease quantity" data-item="standard-pants">-</button>
+                                            <span class="quantity-number-val" id="qty-standard-pants">0</span>
+                                            <button class="quantity-change-btn plus" aria-label="Increase quantity" data-item="standard-pants">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Category: Suits & Sets -->
+                            <div class="cart-category-card" data-category="standard-suits" id="cat-standard-suits">
+                                <div class="category-card-header">
+                                    <h3>Suits & Sets</h3>
+                                    <button class="remove-category-btn" aria-label="Remove Suits & Sets Category" data-target="standard-suits">
+                                        <i class="fa-solid fa-circle-xmark"></i>
+                                    </button>
+                                </div>
+                                <div class="category-card-items">
+                                    <!-- Suit Row -->
+                                    <div class="cart-item-row" data-item-id="standard-suit">
+                                        <div class="item-visual-info">
+                                            <div class="item-icon-bg">
+                                                <i class="fa-solid fa-user-tie"></i>
+                                            </div>
+                                            <div class="item-details-meta">
+                                                <span class="item-label-text">Professional Suits</span>
+                                                <span class="item-sub-price">₹14.00 / set</span>
+                                            </div>
+                                        </div>
+                                        <div class="item-quantity-controls">
+                                            <button class="quantity-change-btn minus" aria-label="Decrease quantity" data-item="standard-suit">-</button>
+                                            <span class="quantity-number-val" id="qty-standard-suit">0</span>
+                                            <button class="quantity-change-btn plus" aria-label="Increase quantity" data-item="standard-suit">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel 3: Quick Steam Ironing Content -->
+                        <div class="cart-panel-content" id="acc-quick-steam-60-panel" role="tabpanel" aria-labelledby="dropdown-current-text">
+                            <div class="empty-service-panel text-center">
+                                <i class="fa-solid fa-basket-shopping empty-panel-icon"></i>
+                                <h3>No items added to this package</h3>
+                                <p>You haven't selected any items for this service package. Go back to browse our service pricing and add items to your cart.</p>
+                                <a href="index.html#services" class="btn btn-primary">Browse Services</a>
+                            </div>
+                        </div>
+
+                        <!-- Panel 4: Wash and Fold Content -->
+                        <div class="cart-panel-content" id="acc-wash-fold-panel" role="tabpanel" aria-labelledby="dropdown-current-text">
+                            <div class="empty-service-panel text-center">
+                                <i class="fa-solid fa-basket-shopping empty-panel-icon"></i>
+                                <h3>No items added to this package</h3>
+                                <p>You haven't selected any items for this service package. Go back to browse our service pricing and add items to your cart.</p>
+                                <a href="index.html#services" class="btn btn-primary">Browse Services</a>
+                            </div>
+                        </div>
+
+                        <!-- Panel 5: Wash and Steam Content -->
+                        <div class="cart-panel-content" id="acc-wash-steam-panel" role="tabpanel" aria-labelledby="dropdown-current-text">
+                            <div class="empty-service-panel text-center">
+                                <i class="fa-solid fa-basket-shopping empty-panel-icon"></i>
+                                <h3>No items added to this package</h3>
+                                <p>You haven't selected any items for this service package. Go back to browse our service pricing and add items to your cart.</p>
+                                <a href="index.html#services" class="btn btn-primary">Browse Services</a>
+                            </div>
+                        </div>
+
+                        <!-- Panel 6: Quick Wash & Steam Content -->
+                        <div class="cart-panel-content" id="acc-quick-wash-3h-panel" role="tabpanel" aria-labelledby="dropdown-current-text">
+                            <div class="empty-service-panel text-center">
+                                <i class="fa-solid fa-basket-shopping empty-panel-icon"></i>
+                                <h3>No items added to this package</h3>
+                                <p>You haven't selected any items for this service package. Go back to browse our service pricing and add items to your cart.</p>
+                                <a href="index.html#services" class="btn btn-primary">Browse Services</a>
+                            </div>
+                        </div>
+
+                        <!-- Panel 7: Dry Cleaning Content -->
+                        <div class="cart-panel-content" id="acc-dry-cleaning-panel" role="tabpanel" aria-labelledby="dropdown-current-text">
+                            <div class="empty-service-panel text-center">
+                                <i class="fa-solid fa-basket-shopping empty-panel-icon"></i>
+                                <h3>No items added to this package</h3>
+                                <p>You haven't selected any items for this service package. Go back to browse our service pricing and add items to your cart.</p>
+                                <a href="index.html#services" class="btn btn-primary">Browse Services</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Right Column: Confirm Payment Summary -->
+                <aside class="cart-summary-section">
+                    <div class="checkout-summary-card">
+                        <h2>Confirm Payment</h2>
+                        
+                        <div class="summary-breakdown-details">
+                            <!-- Sub Total Row -->
+                            <div class="summary-line-item">
+                                <span class="summary-line-label">Sub Total</span>
+                                <span class="summary-line-value" id="summary-subtotal">₹0.00</span>
+                            </div>
+                            <!-- Free Delivery Info Message -->
+                            <div class="free-delivery-promo-msg">
+                                Enjoy free pickup & delivery on Order ₹1.00. (Without tax)
+                            </div>
+                            
+                            <!-- Tax Row -->
+                            <div class="summary-line-item">
+                                <span class="summary-line-label">Tax</span>
+                                <span class="summary-line-value" id="summary-tax">₹0.00</span>
+                            </div>
+                            
+                            <!-- Delivery Row -->
+                            <div class="summary-line-item">
+                                <span class="summary-line-label">Delivery</span>
+                                <span class="summary-line-value" id="summary-delivery">₹0.00</span>
+                            </div>
+                            
+                            <!-- Divider -->
+                            <div class="summary-divider-line"></div>
+                            
+                            <!-- Total Row -->
+                            <div class="summary-line-item total-highlight-row">
+                                <span class="summary-line-label">Total</span>
+                                <span class="summary-line-value font-red" id="summary-total">₹0.00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="checkout-card-actions">
+                            <button class="booking-primary-btn" id="checkout-complete-booking-btn">Complete Booking</button>
+                            <button class="booking-outline-btn" id="checkout-clear-cart-btn">Clear Cart</button>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Booking Success Modal -->
+    <div class="booking-modal-overlay" id="success-modal">
+        <div class="success-modal-card">
+            <div class="success-icon-container">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h2>Booking Confirmed!</h2>
+            <p>Thank you for choosing Ganvin. Your premium wardrobe care request has been received.</p>
+            
+            <div class="order-receipt-summary">
+                <div class="receipt-row">
+                    <span>Order ID:</span>
+                    <span class="bold" id="receipt-order-id">GVN-2026-10492</span>
+                </div>
+                <div class="receipt-row">
+                    <span>Total Amount:</span>
+                    <span class="bold font-red" id="receipt-total-amount">₹2.36</span>
+                </div>
+                <div class="receipt-row">
+                    <span>Estimated Pickup:</span>
+                    <span class="bold">Today, 4:00 PM - 6:00 PM</span>
+                </div>
+            </div>
+            
+            <p class="receipt-footer-text">Our logistics partner will reach out to you shortly via WhatsApp (+91 8310116951).</p>
+            
+            <button class="modal-close-btn" id="success-modal-close-btn">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-top">
+            <!-- Left Info -->
+            <div class="footer-col">
+                <a href="index.html" class="logo footer-logo">
+                    <img src="assets/logo.png" alt="Ganvin Logo" class="logo-img">
+                </a>
+                <p>Professional laundry and ironing services designed to make your life easier. We treat every item with
+                    expert care.</p>
+
+                <div class="app-badges">
+                    <img src="assets/google-play.png" alt="Google Play" style="height: 38px;">
+                    <img src="assets/app-store.png" alt="App Store" style="height: 38px;">
+                </div>
+
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-icon" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="social-icon" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <!-- Link Col 1 -->
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul class="footer-links">
+                    <li><a href="experience-premium-care.html">Steam Ironing Trial</a></li>
+                    <li><a href="standard-steam-ironing.html">Professional Steam Ironing</a></li>
+                    <li><a href="#" class="open-booking">Quick Delivery (60 Mins)</a></li>
+                    <li><a href="#" class="open-booking">Wash & Fold</a></li>
+                    <li><a href="#" class="open-booking">Dry Cleaning</a></li>
+                </ul>
+            </div>
+
+            <!-- Link Col 2 -->
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-info">
+                    <li><i class="fa-solid fa-location-dot"></i> <span>13<sup>th</sup> Cross Prakruthi Township,
+                            Bangalore 560043</span></li>
+                    <li><i class="fa-solid fa-phone"></i> +91 8310116951</li>
+                    <li><i class="fa-solid fa-envelope"></i> info@ganvin.com</li>
+                    <li>
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <div>Working: 8am - 8pm</div>
+                            <div style="margin-top: 3px; opacity: 0.85;">Pickup: 9am - 5pm</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Link Col 3 -->
+            <div class="footer-col footer-get-touch">
+                <h4>Get In Touch!</h4>
+                <p>Join our WhatsApp group for updates and exclusive offers directly on your phone.</p>
+                <a href="#" class="footer-wa-btn">Join WhatsApp Now <span style="margin-left: 0.25rem;">↗</span></a>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Ganvin Professional Laundry Services. All rights reserved.</p>
+            <div class="footer-legal-links">
+                <a href="#">Privacy Policy</a>
+                <span class="footer-pipe">|</span>
+                <a href="#">Terms of Service</a>
+                <span class="footer-pipe">|</span>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+
+</html>

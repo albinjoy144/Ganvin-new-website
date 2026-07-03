@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+function initMain() {
     // 1. Sticky Header
     const header = document.querySelector('header');
     window.addEventListener('scroll', () => {
@@ -140,5 +140,163 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', updateSlider);
     }
 
+    // 6. Global Header Cart Badge Updater
+    function updateGlobalHeaderCartBadge() {
+        const storedCart = localStorage.getItem('ganvin_cart');
+        let totalItems = 0;
+        if (storedCart) {
+            try {
+                const parsed = JSON.parse(storedCart);
+                if (parsed && parsed.items) {
+                    for (const [itemId, qty] of Object.entries(parsed.items)) {
+                        const q = parseInt(qty, 10);
+                        if (!isNaN(q) && q > 0) {
+                            const hiddenCats = parsed.hiddenCategories || [];
+                            
+                            // Map itemId to categoryId
+                            let catId = null;
+                            if (itemId === 'trial-pant' || itemId === 'trial-shirt') catId = 'trial-men';
+                            else if (itemId === 'trial-saree') catId = 'trial-women';
+                            else if (itemId === 'standard-shirt' || itemId === 'standard-pants') catId = 'standard-men';
+                            else if (itemId === 'standard-suit') catId = 'standard-suits';
 
-});
+                            if (!catId || !hiddenCats.includes(catId)) {
+                                totalItems += q;
+                            }
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error("Error updating global cart badge", e);
+            }
+        }
+        
+        const desktopBadge = document.getElementById('cart-badge-count-desktop');
+        const mobileBadge = document.getElementById('cart-badge-count-mobile');
+        
+        if (desktopBadge) desktopBadge.textContent = totalItems;
+        if (mobileBadge) mobileBadge.textContent = totalItems;
+    }
+    
+    updateGlobalHeaderCartBadge();
+    
+    window.addEventListener('storage', (e) => {
+        if (e.key === 'ganvin_cart') {
+            updateGlobalHeaderCartBadge();
+        }
+    });
+
+    // Share helper globally
+    window.updateGlobalCartBadge = updateGlobalHeaderCartBadge;
+
+    // 7. Interactive Add To Cart Handler
+    const bookingButtons = document.querySelectorAll('.open-booking');
+    
+    function showCartToast(message) {
+        let toast = document.querySelector('.cart-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.className = 'cart-toast';
+            document.body.appendChild(toast);
+        }
+        
+        toast.innerHTML = `
+            <i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 1.25rem;"></i>
+            <span class="cart-toast-msg">${message}</span>
+            <a href="cart.html" class="cart-toast-link">View Cart ↗</a>
+        `;
+        
+        // Trigger show animation
+        setTimeout(() => toast.classList.add('active'), 10);
+        
+        // Hide after 3 seconds
+        setTimeout(() => {
+            toast.classList.remove('active');
+        }, 3000);
+    }
+
+    function initCartData() {
+        const stored = localStorage.getItem('ganvin_cart');
+        if (stored) {
+            try {
+                return JSON.parse(stored);
+            } catch(e) {}
+        }
+        return {
+            items: {
+                'trial-pant': 0,
+                'trial-shirt': 0,
+                'trial-saree': 0,
+                'standard-shirt': 0,
+                'standard-pants': 0,
+                'standard-suit': 0
+            },
+            hiddenCategories: []
+        };
+    }
+
+    bookingButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const btnText = btn.textContent.trim().toLowerCase();
+            
+            // Check if it's a standard trial button or book ironing
+            if (btnText.includes('trial') || btnText.includes('book steam ironing')) {
+                e.preventDefault();
+                const cartData = initCartData();
+                cartData.items['trial-pant'] = Math.max(cartData.items['trial-pant'] || 0, 1);
+                cartData.items['trial-shirt'] = Math.max(cartData.items['trial-shirt'] || 0, 1);
+                
+                // If the categories were hidden, unhide them
+                cartData.hiddenCategories = cartData.hiddenCategories.filter(cat => cat !== 'trial-men');
+                
+                localStorage.setItem('ganvin_cart', JSON.stringify(cartData));
+                updateGlobalHeaderCartBadge();
+                
+                // Redirect straight to cart
+                window.location.href = 'cart.html';
+                return;
+            }
+            
+            // Check if it's an "Add to Cart" or "Select Service" button in pricing-grid
+            const pricingCard = btn.closest('.pricing-card');
+            if (pricingCard) {
+                e.preventDefault();
+                const cardHeader = pricingCard.querySelector('h3');
+                if (cardHeader) {
+                    const cardTitle = cardHeader.textContent.trim();
+                    let itemId = null;
+                    let itemName = cardTitle;
+                    
+                    if (cardTitle.includes('Shirt')) {
+                        itemId = 'standard-shirt';
+                    } else if (cardTitle.includes('Trouser')) {
+                        itemId = 'standard-pants';
+                    } else if (cardTitle.includes('Suit')) {
+                        itemId = 'standard-suit';
+                    }
+                    
+                    if (itemId) {
+                        const cartData = initCartData();
+                        cartData.items[itemId] = (cartData.items[itemId] || 0) + 1;
+                        
+                        // Restore standard-men or standard-suits if they were hidden
+                        const catId = itemId === 'standard-suit' ? 'standard-suits' : 'standard-men';
+                        cartData.hiddenCategories = cartData.hiddenCategories.filter(cat => cat !== catId);
+                        
+                        localStorage.setItem('ganvin_cart', JSON.stringify(cartData));
+                        updateGlobalHeaderCartBadge();
+                        showCartToast(`Added ${itemName} to cart!`);
+                    }
+                }
+            }
+        });
+    });
+
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMain);
+} else {
+    initMain();
+}
+
