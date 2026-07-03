@@ -3338,6 +3338,7 @@ textarea.form-input {
 @media (max-width: 576px) {
     .service-hero-banner {
         padding: 2rem 1.5rem;
+        padding: 2.5rem 2rem;
     }
 
     .service-hero-left h1 {
