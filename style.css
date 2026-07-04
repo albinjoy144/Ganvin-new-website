@@ -736,9 +736,10 @@ header .btn {
 }
 
 @media (max-width: 768px) {
-    /* Hide the worker image on mobile - prevents unwanted vertical scroll */
     .hero-right {
-        display: none;
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5rem;
     }
 
     .hero {
@@ -755,6 +756,10 @@ header .btn {
 
     .hero-left p {
         margin-bottom: 2rem;
+    }
+
+    .hero-img {
+        height: 220px;
     }
 }
 
