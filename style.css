@@ -707,13 +707,12 @@ header .btn {
 
 @media (max-width: 992px) {
     .hero-banner {
-        padding: 3rem 3rem;
         padding: 2.5rem 2rem;
     }
 
     .hero-grid {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2rem;
     }
 
     .hero-left h1 {
@@ -723,19 +722,40 @@ header .btn {
     .hero-right-card {
         max-width: 100%;
     }
+
+    .hero-img {
+        height: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hide the worker image on mobile — prevents unwanted vertical scroll */
+    .hero-right {
+        display: none;
+    }
 }
 
 @media (max-width: 576px) {
-    .hero-card {
-        padding: 2rem 1.5rem;
+    .hero-banner {
+        padding: 2rem 1.25rem;
     }
 
-    .hero-card h1 {
+    .hero-left h1 {
         font-size: 2.2rem;
+    }
+
+    .hero-left p {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
     }
 
     .hero-btns {
         flex-direction: column;
+    }
+
+    .hero-badge {
+        font-size: 0.8rem;
+        margin-bottom: 1.5rem;
     }
 }
 
