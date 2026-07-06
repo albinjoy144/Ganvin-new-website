@@ -4,3 +4,8 @@ assets/about-hero-woman.png
 assets/about-ironing.png
 assets/about-closet.png
 assets/about-header.gif
+
+# Node.js
+node_modules/
+package-lock.json
+submissions.json

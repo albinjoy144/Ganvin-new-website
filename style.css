@@ -392,7 +392,7 @@ header .btn {
 /* Mobile responsive menu */
 @media (max-width: 992px) {
     header {
-        padding: 1rem 1.25rem;
+        padding: 1rem 0rem;
     }
 
     header.scrolled {
@@ -4390,4 +4390,39 @@ textarea.form-input {
 
 .cart-toast-link:hover {
     color: var(--primary);
+}
+
+/* Contact Form Status Message Banner */
+.form-message-banner {
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+    transition: all var(--transition-normal);
+}
+
+.form-message-banner.error-banner {
+    background-color: #fef2f2;
+    border: 1px solid #fee2e2;
+    color: #991b1b;
+}
+
+.form-message-banner.success-banner {
+    background-color: #f0fdf4;
+    border: 1px solid #dcfce7;
+    color: #166534;
+}
+
+/* Validation Highlights */
+.form-input.input-error {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
+/* Button Loading States */
+.form-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
