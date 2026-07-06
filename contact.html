@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Ganvin | Premium Professional Wardrobe & Laundry Care Services</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description"
+        content="Get in touch with Ganvin. Contact our Bangalore hub for premium dry cleaning, steam ironing, and professional wardrobe care. Send us a message or join our WhatsApp.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/logo.ico">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css?v=41">
+
+    <!-- Icon Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- Sticky Navigation Header -->
+    <header id="main-header">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo" id="header-logo">
+                <img src="assets/logo.png" alt="Ganvin Logo" class="logo-img">
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="cart.html" class="login-btn">Login</a>
+                <a href="#" class="btn btn-primary open-booking">Book Now</a>
+            </div>
+
+            <div class="mobile-header-right">
+                <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars hamburger-icon"></i>
+                    <i class="fa-solid fa-xmark close-icon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Drawer -->
+    <nav class="nav-drawer" id="nav-links-menu">
+        <!-- Drawer Header: Logo -->
+        <div class="drawer-header">
+            <a href="index.html">
+                <img src="assets/logo.png" alt="Ganvin Logo" class="logo-img">
+            </a>
+        </div>
+
+        <!-- Drawer Body: Scrollable Nav Links -->
+        <ul class="drawer-body">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+
+        <!-- Drawer Footer: Actions -->
+        <div class="drawer-footer">
+            <a href="cart.html" class="login-btn">Login</a>
+            <a href="#" class="btn btn-primary open-booking">Book Now</a>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Backdrop Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-overlay"></div>
+
+    <!-- Contact Intro Header Section -->
+    <section class="contact-intro">
+        <div class="container">
+            <div class="contact-badge reveal">
+                Contact Us
+            </div>
+            <h1 class="reveal">Get in Touch</h1>
+            <p class="reveal">Laundry made effortless, ironing made perfect. Let us take care of your clothes while you take care of what matters most.</p>
+        </div>
+    </section>
+
+    <!-- Contact Layout Grid Section -->
+    <section class="contact-content-grid">
+        <div class="container">
+            <div class="contact-layout-grid">
+                <!-- Left Column: Send Us a Message Form -->
+                <div class="contact-form-card reveal-left">
+                    <h2>Send Us a Message</h2>
+                    <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                        <div class="contact-form-row">
+                            <div class="form-group">
+                                <label for="full-name">Full Name</label>
+                                <input type="text" id="full-name" class="form-input" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email-address">Email Address</label>
+                                <input type="email" id="email-address" class="form-input" placeholder="email@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service-inquiry">Service Inquiry</label>
+                            <select id="service-inquiry" class="form-input" required>
+                                <option value="steam-ironing" selected>Steam Ironing</option>
+                                <option value="dry-cleaning">Dry Cleaning</option>
+                                <option value="wash-fold">Wash & Fold</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="your-message">Your Message</label>
+                            <textarea id="your-message" class="form-input" placeholder="How can we help you today?" required></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Right Column: Contact Info Stack -->
+                <div class="contact-info-stack reveal-right">
+                    <!-- Contact Info Card -->
+                    <div class="contact-info-card">
+                        <h2>Contact Info</h2>
+                        <ul class="contact-info-list">
+                            <!-- Location -->
+                            <li class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="contact-info-text">
+                                    <h4>Flagship Store</h4>
+                                    <p>13<sup>th</sup> Cross Prakruthi Township, Babusapalaya, Horamavu Agara, Kalyan Nagar, Bangalore 560043</p>
+                                </div>
+                            </li>
+                            <!-- Phone -->
+                            <li class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div class="contact-info-text">
+                                    <h4>Phone Number</h4>
+                                    <p style="color: #dc2626; font-weight: 700;">+91 8310116951</p>
+                                </div>
+                            </li>
+                            <!-- Availability -->
+                            <li class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div class="contact-info-text">
+                                    <h4>Availability</h4>
+                                    <p>Working Time: 8am - 8pm<br>Pickup Window: 9am - 5pm</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Storefront Image Card -->
+                    <div class="contact-store-card">
+                        <img src="assets/contact-store.png" alt="Ganvin Retail Storefront in Bangalore" class="contact-store-img">
+                        <div class="contact-store-overlay">
+                            <div class="contact-store-details">
+                                <h4>Find us in Bangalore</h4>
+                                <p>Kalyan Nagar District</p>
+                            </div>
+                            <a href="https://maps.google.com" target="_blank" class="directions-btn">Get Directions</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect With WhatsApp Section -->
+    <section class="whatsapp-cta-section">
+        <div class="container">
+            <div class="whatsapp-cta-banner reveal-scale">
+                <div class="whatsapp-cta-content">
+                    <h2>Connect With WhatsApp</h2>
+                    <p>Join our WhatsApp group to get the latest updates, offers, and laundry tips directly on your phone.</p>
+                </div>
+                <a href="#" class="whatsapp-btn">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.35rem;"></i> Join Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-top">
+            <!-- Left Info -->
+            <div class="footer-col">
+                <a href="index.html" class="logo footer-logo">
+                    <img src="assets/logo.png" alt="Ganvin Logo" class="logo-img">
+                </a>
+                <p>Professional laundry and ironing services designed to make your life easier. We treat every item with expert care.</p>
+
+                <div class="app-badges">
+                    <img src="assets/google-play.png" alt="Google Play" style="height: 38px;">
+                    <img src="assets/app-store.png" alt="App Store" style="height: 38px;">
+                </div>
+
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-icon" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="social-icon" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <!-- Link Col 1 -->
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul class="footer-links">
+                    <li><a href="experience-premium-care.html">Steam Ironing Trial</a></li>
+                    <li><a href="standard-steam-ironing.html">Professional Steam Ironing</a></li>
+                    <li><a href="#" class="open-booking">Quick Delivery (60 Mins)</a></li>
+                    <li><a href="#" class="open-booking">Wash & Fold</a></li>
+                    <li><a href="#" class="open-booking">Dry Cleaning</a></li>
+                </ul>
+            </div>
+
+            <!-- Link Col 2 -->
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-info">
+                    <li><i class="fa-solid fa-location-dot"></i> <span>13<sup>th</sup> Cross Prakruthi Township, Bangalore 560043</span></li>
+                    <li><i class="fa-solid fa-phone"></i> +91 8310116951</li>
+                    <li><i class="fa-solid fa-envelope"></i> info@ganvin.com</li>
+                    <li>
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <div>Working: 8am - 8pm</div>
+                            <div style="margin-top: 3px; opacity: 0.85;">Pickup: 9am - 5pm</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Link Col 3 -->
+            <div class="footer-col footer-get-touch">
+                <h4>Get In Touch!</h4>
+                <p>Join our WhatsApp group for updates and exclusive offers directly on your phone.</p>
+                <a href="#" class="footer-wa-btn">Join WhatsApp Now <span style="margin-left: 0.25rem;">↗</span></a>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Ganvin Professional Laundry Services. All rights reserved.</p>
+            <div class="footer-legal-links">
+                <a href="#">Privacy Policy</a>
+                <span class="footer-pipe">|</span>
+                <a href="#">Terms of Service</a>
+                <span class="footer-pipe">|</span>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
