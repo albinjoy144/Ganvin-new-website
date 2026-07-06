@@ -396,7 +396,7 @@ header .btn {
     }
 
     header.scrolled {
-        padding: 0.65rem 1.25rem;
+        padding: 0.65rem 0rem;
     }
 
     /* Solid header background when drawer is open so logo stays visible */
