@@ -19,8 +19,11 @@ app.use((req, res, next) => {
     next();
 });
 
-// Block access to experience-premium-care.html from server (file remains on local disk)
-app.all(['/experience-premium-care.html', '/experience-premium-care'], (req, res) => {
+// Block access to specified pages from server (files remain on local disk)
+app.all([
+    '/experience-premium-care.html', '/experience-premium-care',
+    '/standard-steam-ironing.html', '/standard-steam-ironing'
+], (req, res) => {
     res.status(404).send('404 - Page Not Found');
 });
 

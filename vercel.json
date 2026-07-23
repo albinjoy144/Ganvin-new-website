@@ -22,6 +22,10 @@
     {
       "src": "/experience-premium-care(.html)?",
       "status": 404
+    },
+    {
+      "src": "/standard-steam-ironing(.html)?",
+      "status": 404
     }
   ]
 }
