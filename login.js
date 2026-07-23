@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Interactive Promo Card Slide Dots
+    // 4. Interactive & Auto-sliding Promo Card Slide Dots & Captions
     const promoDots = document.querySelectorAll('.promo-dot');
     const promoCaption = document.getElementById('promo-caption');
     const captions = [
@@ -145,27 +145,53 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     if (promoDots.length > 0 && promoCaption) {
+        let currentSlide = 0;
+        let slideInterval;
+
+        function goToSlide(index) {
+            currentSlide = index;
+            // Remove active class from all
+            promoDots.forEach(d => d.classList.remove('active'));
+            // Add active to current
+            if (promoDots[currentSlide]) {
+                promoDots[currentSlide].classList.add('active');
+            }
+
+            // Animate caption transition
+            promoCaption.style.opacity = '0';
+            promoCaption.style.transform = 'translateY(8px)';
+
+            setTimeout(() => {
+                promoCaption.innerHTML = captions[currentSlide];
+                promoCaption.style.opacity = '1';
+                promoCaption.style.transform = 'translateY(0)';
+            }, 200);
+        }
+
+        function startAutoSlide() {
+            slideInterval = setInterval(() => {
+                const nextSlide = (currentSlide + 1) % captions.length;
+                goToSlide(nextSlide);
+            }, 4000);
+        }
+
+        function resetAutoSlide() {
+            if (slideInterval) clearInterval(slideInterval);
+            startAutoSlide();
+        }
+
         promoDots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
-                // Remove active class from all
-                promoDots.forEach(d => d.classList.remove('active'));
-                // Add active to clicked
-                dot.classList.add('active');
-                
-                // Animate caption transition
-                promoCaption.style.opacity = 0;
-                promoCaption.style.transform = 'translateY(10px)';
-                
-                setTimeout(() => {
-                    promoCaption.innerHTML = captions[index];
-                    promoCaption.style.opacity = 1;
-                    promoCaption.style.transform = 'translateY(0)';
-                }, 200);
+                goToSlide(index);
+                resetAutoSlide();
             });
         });
-        
+
         // CSS transitions for opacity/transform animation
         promoCaption.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+
+        // Start auto-sliding captions
+        startAutoSlide();
     }
 
     // Forgot Password Click Action
