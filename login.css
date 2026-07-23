@@ -507,6 +507,8 @@ body.login-page-body {
     padding: 1.5rem 2rem;
     background: #ffffff;
     text-align: center;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
 }
 
 .promo-dots {
