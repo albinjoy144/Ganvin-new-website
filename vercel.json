@@ -26,6 +26,10 @@
     {
       "src": "/standard-steam-ironing(.html)?",
       "status": 404
+    },
+    {
+      "src": "/login(.html)?",
+      "status": 404
     }
   ]
 }
