@@ -10,8 +10,26 @@ const SUBMISSIONS_FILE = path.join(__dirname, 'submissions.json');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static assets from the current directory
-app.use(express.static(__dirname));
+// Disable server and browser caching
+app.set('etag', false);
+app.use((req, res, next) => {
+    res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+    res.set('Pragma', 'no-cache');
+    res.set('Expires', '0');
+    next();
+});
+
+// Block access to experience-premium-care.html from server (file remains on local disk)
+app.all(['/experience-premium-care.html', '/experience-premium-care'], (req, res) => {
+    res.status(404).send('404 - Page Not Found');
+});
+
+// Serve static assets from the current directory without caching
+app.use(express.static(__dirname, {
+    etag: false,
+    lastModified: false,
+    maxAge: 0
+}));
 
 // Route to handle contact form submissions
 app.post('/api/contact', (req, res) => {
