@@ -381,6 +381,16 @@ body.login-page-body {
     width: 100%;
 }
 
+.promo-illustration-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
 .main-illustration-gif {
     position: absolute;
     top: 0;
@@ -388,7 +398,7 @@ body.login-page-body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 10;
+    z-index: 1;
 }
 
 /* Floating Elements style */
@@ -507,11 +517,14 @@ body.login-page-body {
     object-fit: cover;
 }
 
-/* Bottom Text and Navigation Dots */
+/* Bottom Text and Navigation Dots inside illustration container */
 .promo-text-container {
+    position: relative;
+    z-index: 10;
     width: 100%;
     text-align: center;
-    z-index: 10;
+    padding: 2.5rem 1.5rem 1.5rem;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.75) 60%, transparent 100%);
 }
 
 .promo-dots {
