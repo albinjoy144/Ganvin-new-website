@@ -500,12 +500,17 @@ body.login-page-body {
 
 /* Bottom Text and Navigation Dots overlay over full cover GIF */
 .promo-text-container {
-    position: relative;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
     z-index: 10;
-    width: 100%;
     text-align: center;
-    padding: 3.5rem 1.75rem 1.75rem;
-    background: linear-gradient(to top, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.8) 65%, transparent 100%);
+    padding: 1.75rem 1.5rem 1.25rem;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
 }
 
 .promo-dots {
